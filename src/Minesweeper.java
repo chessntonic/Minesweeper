@@ -26,7 +26,6 @@ public class Minesweeper {
         printBoard();
         gamePlay();
     }
-
     public void initializeBoard() { // Initializing the board, randomly placing the mines and filling in the rest as safe tiles.
         // Here we randomly assign and place mines to the board
         while (mines > 0) {
@@ -50,6 +49,7 @@ public class Minesweeper {
             }
         }
     }
+
     // Methods to check for surrounding/neighboring mines
     private int northCheck(int mevcutSatır, int mevcutSütun) {
         int kuzey = mevcutSatır - 1;
@@ -65,6 +65,7 @@ public class Minesweeper {
             }
         }
     }
+
     private int southCheck(int mevcutSatır, int mevcutSütun) {
         int guney = mevcutSatır + 1;
 
@@ -79,6 +80,7 @@ public class Minesweeper {
             }
         }
     }
+
     private int eastCheck(int mevcutSatır, int mevcutSütun) {
         int dogu = mevcutSütun + 1;
 
@@ -93,7 +95,8 @@ public class Minesweeper {
             }
         }
     }
-   private int westCheck(int mevcutSatır, int mevcutSütun) {
+
+    private int westCheck(int mevcutSatır, int mevcutSütun) {
         int batı = mevcutSütun - 1;
 
         if (batı < 0) {
@@ -106,6 +109,7 @@ public class Minesweeper {
             }
         }
     }
+
     private int northeastCheck(int mevcutSatır, int mevcutSütun) {
         int kuzey = mevcutSatır - 1;
         int dogu = mevcutSütun + 1;
@@ -118,6 +122,7 @@ public class Minesweeper {
         }
         return 0;
     }
+
     private int northwestCheck(int mevcutSatır, int mevcutSütun) {
         int kuzey = mevcutSatır - 1;
         int batı = mevcutSütun - 1;
@@ -130,6 +135,7 @@ public class Minesweeper {
         }
         return 0;
     }
+
     private int southeastCheck(int mevcutSatır, int mevcutSütun) {
         int guney = mevcutSatır + 1;
         int dogu = mevcutSütun + 1;
@@ -142,6 +148,7 @@ public class Minesweeper {
         }
         return 0;
     }
+
     private int southwestCheck(int mevcutSatır, int mevcutSütun) {
         int guney = mevcutSatır + 1;
         int batı = mevcutSütun - 1;
@@ -154,6 +161,7 @@ public class Minesweeper {
         }
         return 0;
     }
+
     public void printBoard() { // Here we print the solution including the flags.
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -167,6 +175,7 @@ public class Minesweeper {
         }
         System.out.println("--------------------------------");
     }
+
     // This is where the actual gameplay starts.
     // The game continues until the player reveals all safe tiles or hits a mine.
     public void gamePlay() {

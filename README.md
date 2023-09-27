@@ -6,7 +6,7 @@ Oyun Kuralları :
 - Oyun metin tabanlıdır.
 - Çift boyutlu diziler üzerinden oynanan oyun MineSweeper sınıfı içerisinde tasarlandı.
 - Matris boyutunu (satır ve sütun sayısını) kullanıcı belirliyor.
-- Diziye ait eleman sayısının çeyreği (elemanSayisi / 4) kadar rastgele mayın yerleştiriliyor. Örneğin dizi 4x3 boyutunda ise eleman sayısı (satırSayısı * sütunSayısı) formülü ile hesaplanıyor.
+- Diziye ait eleman sayısının çeyreği (elemanSayısı / 4) kadar rastgele mayın yerleştiriliyor. Örneğin dizi 4x3 boyutunda ise eleman sayısı (satırSayısı * sütunSayısı) formülü ile hesaplanıyor.
   Boyut 12 olduğundan 12 / 4 = 3 adet mayın oluşuyor.
 - Kullanıcı matris üzerinden bir koordinatı satır ve sütun değerleri girerek seçiyor.
 - Seçilen noktanın dizinin sınırları içerisinde olup olmadığını kontrol ediliyor ve koşul sağlanmazsa tekrar nokta isteniyor.

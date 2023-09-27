@@ -198,7 +198,7 @@ public class Minesweeper {
                 }
                 System.out.println();
             }
-            // Input validation to check if the row and column inputs are within range
+            // Input validation to check if the row and column inputs are within range and if the tile has already been revealed or not
             while (true) {
                 System.out.print("Please provide the row: ");
                 int inputRowNumber = scanner.nextInt() - 1;

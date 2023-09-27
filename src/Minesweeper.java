@@ -26,13 +26,14 @@ public class Minesweeper {
         printBoard();
         gamePlay();
     }
+
     public void initializeBoard() { // Initializing the board, randomly placing the mines and filling in the rest as safe tiles.
-        // Here we randomly assign and place mines to the board
+
         while (mines > 0) {
             Random random = new Random();
             int randomRow = random.nextInt(row);
             int randomCol = random.nextInt(col);
-
+            // Above, we get random coordinates for the mines and below place them onto the board
             if (board[randomRow][randomCol] != -1) {
                 board[randomRow][randomCol] = -1;
                 mines--;
@@ -53,7 +54,6 @@ public class Minesweeper {
     // Methods to check for surrounding/neighboring mines
     private int northCheck(int mevcutSatır, int mevcutSütun) {
         int kuzey = mevcutSatır - 1;
-
         // Check if there is a row above.
         if (kuzey < 0) {
             return 0; // If there isn't a row above, there can't be a mine.

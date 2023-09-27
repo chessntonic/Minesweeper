@@ -12,7 +12,7 @@ public class Main {
             col = scanner.nextInt();
 
             if (row < 3 || col < 3) {
-                System.out.println("Satır ve sütun sayıları en az 3 olmalıdır. Lütfen tekrar deneyin.");
+                System.out.println("You need at least three rows and columns. Please try again.");
             }
         } while (row < 3 || col < 3);
 

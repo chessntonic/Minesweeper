@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Minesweeper {
+public class Minesweeper { //Form 5
     private int row;
     private int col;
     private int[][] board;
@@ -9,7 +9,6 @@ public class Minesweeper {
     private int mines;
     private int safeTiles = 0;
     private int safeTilesTotal = 0;
-
 
     // Constructor for the Minesweeper class
     public Minesweeper(int row, int col) {
@@ -28,24 +27,24 @@ public class Minesweeper {
     }
 
     public void initializeBoard() { // Initializing the board, randomly placing the mines and filling in the rest as safe tiles.
-
+                                    // Form 8
         while (mines > 0) {
             Random random = new Random();
             int randomRow = random.nextInt(row);
             int randomCol = random.nextInt(col);
-            // Above, we get random coordinates for the mines and below place them onto the board
+            // Right above, we get random coordinates for the mines and place them onto the board right below
             if (board[randomRow][randomCol] != -1) {
                 board[randomRow][randomCol] = -1;
                 mines--;
             }
         }
-        for (int i = 0; i < row; i++) { // Here we check every tile for surrounding/neighboring mines
+        for (int i = 0; i < row; i++) { // Calculate the total of neighboring mines // Form 12
             for (int j = 0; j < col; j++) {
                 if (board[i][j] != -1) {
                     int neighboringMines = 0;
                     neighboringMines += northCheck(i, j) + southCheck(i, j) + westCheck(i, j) + eastCheck(i, j)
                             + northeastCheck(i, j) + southeastCheck(i, j) + northwestCheck(i, j) + southwestCheck(i, j);
-                    board[i][j] = neighboringMines;
+                    board[i][j] = neighboringMines; // Print the total number of neighboring mines onto the chosen coordinate // Form 12
                 }
             }
         }
@@ -95,11 +94,11 @@ public class Minesweeper {
             }
         }
     }
-
+    // Check if there is a column to the left.
     private int westCheck(int mevcutSatır, int mevcutSütun) {
         int batı = mevcutSütun - 1;
 
-        if (batı < 0) {
+        if (batı < 0) { // If there isn't a column to the left, there can't be a mine.
             return 0;
         } else {
             if (board[mevcutSatır][batı] == -1) {
@@ -182,8 +181,9 @@ public class Minesweeper {
         int rowNumber; // Used for input validation below
         int columnNumber; // Used for input validation below
 
-        while (safeTiles != safeTilesTotal) {
+        while (safeTiles != safeTilesTotal) { // Form 11
             Scanner scanner = new Scanner(System.in);
+
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
                     if (revealed[i][j] == false) {
@@ -198,20 +198,20 @@ public class Minesweeper {
                 }
                 System.out.println();
             }
-            // Input validation to check if the row and column inputs are within range and if the tile has already been revealed or not
+            // Getting coordinates from the user and validating the input
             while (true) {
-                System.out.print("Please provide the row: ");
+                System.out.print("Please provide the row: "); // Form 9
                 int inputRowNumber = scanner.nextInt() - 1;
 
                 System.out.print("Please provide the column: ");
                 int inputColumnNumber = scanner.nextInt() - 1;
 
                 if (inputRowNumber + 1 <= row && inputRowNumber + 1 >= 1
-                        && inputColumnNumber + 1 <= col && inputColumnNumber + 1 >= 1) {
+                        && inputColumnNumber + 1 <= col && inputColumnNumber + 1 >= 1) { // Input validation to check if the row and column inputs are within range and if the tile has already been revealed or not // Form 10
                     rowNumber = inputRowNumber;
                     columnNumber = inputColumnNumber;
 
-                    if (revealed[rowNumber][columnNumber]) {
+                    if (revealed[rowNumber][columnNumber]) { // Input validation to check if the tile has already been revealed or not // Form 10
                         System.out.println("That tile is already revealed, please pick another tile.");
                     } else {
                         break; // Break out of the loop when the input is valid and tile is not revealed
@@ -224,14 +224,14 @@ public class Minesweeper {
             revealed[rowNumber][columnNumber] = true;
             safeTiles++;
 
-            if (board[rowNumber][columnNumber] == -1) { // The player loses the game if they hit a mine.
+            if (board[rowNumber][columnNumber] == -1) { // The player loses the game if they hit a mine. // Form 13
                 printBoard();
-                System.out.println("Sorry, you've lost!");
+                System.out.println("Sorry, you've lost!"); // Form 15
                 break;
             } else {
-                if (safeTiles == safeTilesTotal) { // The player wins if the player reveals all the safe tiles.
+                if (safeTiles == safeTilesTotal) { // The player wins if the player reveals all the safe tiles. // Form 14
                     printBoard();
-                    System.out.println("You won!");
+                    System.out.println("You won!"); // Form 15
                     break;
                 }
             }

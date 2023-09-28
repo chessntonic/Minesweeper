@@ -6,6 +6,7 @@ public class Main {
         int row, col;
 
         do { // A board of 2x2 would be too small for the game, so we kindly ask the user to provide at least three rows and columns.
+             // Form 7
             System.out.print("How many rows would you like to have? (Please enter at least 3): ");
             row = scanner.nextInt();
             System.out.print("How many columns would you like to have? (Please enter at least 3): ");

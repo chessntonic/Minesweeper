@@ -8,7 +8,7 @@ public class Minesweeper { // Form 5
     private boolean[][] revealed;
     private int mines;
     private int safeTiles = 0;
-    private int safeTilesTotal = 0;
+    private int safeTilesTotal;
     Scanner scanner = new Scanner(System.in);
 
     public Minesweeper(int row, int col) {
@@ -21,6 +21,7 @@ public class Minesweeper { // Form 5
         this.safeTilesTotal = totalTiles - mines;
         this.board = new int[row][col];
         this.revealed = new boolean[row][col];
+        System.out.println(mines);
         initializeBoard();
         printBoard();
         gamePlay();
@@ -183,7 +184,7 @@ public class Minesweeper { // Form 5
         while (safeTiles != safeTilesTotal) { // Form 11
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
-                    if (revealed[i][j] == false) {
+                    if (!revealed[i][j]) {
                         System.out.print("-  ");
                     } else {
                         if (board[i][j] == -1) {

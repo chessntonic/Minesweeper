@@ -93,7 +93,6 @@ public class Minesweeper { // Form 5
         }
     }
 
-
     private int westCheck(int mevcutSatır, int mevcutSütun) { // Check if there is a column to the left.
         int batı = mevcutSütun - 1;
 

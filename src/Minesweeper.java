@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Minesweeper { //Form 5
+public class Minesweeper { // Form 5
     private int row;
     private int col;
     private int[][] board;
@@ -26,8 +26,8 @@ public class Minesweeper { //Form 5
         gamePlay();
     }
 
-    public void initializeBoard() { // Initializing the board, randomly placing the mines and filling in the rest as safe tiles.
-        // Form 8
+    public void initializeBoard() { // Form 8 // Initializing the board, randomly placing the mines and filling in the rest as safe tiles.
+
         while (mines > 0) { // Here we get random coordinates for the mines and place them onto the board.
             Random random = new Random();
             int randomRow = random.nextInt(row);
@@ -38,21 +38,21 @@ public class Minesweeper { //Form 5
                 mines--;
             }
         }
-        for (int i = 0; i < row; i++) { // Calculate the total of neighboring mines // Form 12
+        for (int i = 0; i < row; i++) { // Form 12 // Calculate the total of neighboring mines
             for (int j = 0; j < col; j++) {
                 if (board[i][j] != -1) {
                     int neighboringMines = 0;
                     neighboringMines += northCheck(i, j) + southCheck(i, j) + westCheck(i, j) + eastCheck(i, j)
                             + northeastCheck(i, j) + southeastCheck(i, j) + northwestCheck(i, j) + southwestCheck(i, j);
-                    board[i][j] = neighboringMines; // Print the total number of neighboring mines onto the chosen coordinate // Form 12
+                    board[i][j] = neighboringMines; // Form 12 // Print the total number of neighboring mines onto the chosen coordinate
                 }
             }
         }
     }
 
     // Starting checks for surrounding/neighboring mines
-    private int northCheck(int mevcutSatır, int mevcutSütun) {
-        int kuzey = mevcutSatır - 1; // Check if there is a row above.
+    private int northCheck(int mevcutSatır, int mevcutSütun) { // Check if there is a row above.
+        int kuzey = mevcutSatır - 1;
 
         if (kuzey < 0) {
             return 0; // If there isn't a row above, there can't be a mine.
@@ -65,11 +65,11 @@ public class Minesweeper { //Form 5
         }
     }
 
-    private int southCheck(int mevcutSatır, int mevcutSütun) {
-        int guney = mevcutSatır + 1; // Check if there is a row below.
+    private int southCheck(int mevcutSatır, int mevcutSütun) { // Check if there is a row below.
+        int guney = mevcutSatır + 1;
 
         if (guney >= row) {
-            return 0; // If there isn't a row below, there can't be a mine.
+            return 0;
         } else {
             if (board[guney][mevcutSütun] == -1) {
                 return 1;
@@ -79,11 +79,11 @@ public class Minesweeper { //Form 5
         }
     }
 
-    private int eastCheck(int mevcutSatır, int mevcutSütun) {
-        int dogu = mevcutSütun + 1; // Check if there is a column to the right.
+    private int eastCheck(int mevcutSatır, int mevcutSütun) { // Check if there is a column to the right.
+        int dogu = mevcutSütun + 1;
 
         if (dogu >= col) {
-            return 0; // If there isn't a column to the right, there can't be a mine.
+            return 0;
         } else {
             if (board[mevcutSatır][dogu] == -1) {
                 return 1;
@@ -93,11 +93,11 @@ public class Minesweeper { //Form 5
         }
     }
 
-    // Check if there is a column to the left.
-    private int westCheck(int mevcutSatır, int mevcutSütun) {
+
+    private int westCheck(int mevcutSatır, int mevcutSütun) { // Check if there is a column to the left.
         int batı = mevcutSütun - 1;
 
-        if (batı < 0) { // If there isn't a column to the left, there can't be a mine.
+        if (batı < 0) {
             return 0;
         } else {
             if (board[mevcutSatır][batı] == -1) {
@@ -124,7 +124,7 @@ public class Minesweeper { //Form 5
     private int northwestCheck(int mevcutSatır, int mevcutSütun) {
         int kuzey = mevcutSatır - 1;
         int batı = mevcutSütun - 1;
-        if ((kuzey < 0) || (batı < 0)) { // Combining the logic from northCheck and westCheck
+        if ((kuzey < 0) || (batı < 0)) {
             return 0;
         } else {
             if (board[kuzey][batı] == -1) {
@@ -137,7 +137,7 @@ public class Minesweeper { //Form 5
     private int southeastCheck(int mevcutSatır, int mevcutSütun) {
         int guney = mevcutSatır + 1;
         int dogu = mevcutSütun + 1;
-        if ((guney >= row) || (dogu >= col)) { // Combining the logic from southCheck and eastCheck
+        if ((guney >= row) || (dogu >= col)) {
             return 0;
         } else {
             if (board[guney][dogu] == -1) {
@@ -150,7 +150,7 @@ public class Minesweeper { //Form 5
     private int southwestCheck(int mevcutSatır, int mevcutSütun) {
         int guney = mevcutSatır + 1;
         int batı = mevcutSütun - 1;
-        if ((guney >= row) || (batı < 0)) { // Combining the logic from southCheck and westCheck
+        if ((guney >= row) || (batı < 0)) {
             return 0;
         } else {
             if (board[guney][batı] == -1) {

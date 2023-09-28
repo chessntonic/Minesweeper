@@ -21,7 +21,6 @@ public class Minesweeper { // Form 5
         this.safeTilesTotal = totalTiles - mines;
         this.board = new int[row][col];
         this.revealed = new boolean[row][col];
-        System.out.println(mines);
         initializeBoard();
         printBoard();
         gamePlay();

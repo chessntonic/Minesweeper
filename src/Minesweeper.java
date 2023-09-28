@@ -9,15 +9,15 @@ public class Minesweeper { //Form 5
     private int mines;
     private int safeTiles = 0;
     private int safeTilesTotal = 0;
+    Scanner scanner = new Scanner(System.in);
 
-    // Constructor for the Minesweeper class
     public Minesweeper(int row, int col) {
         int totalTiles;
 
         this.row = row;
         this.col = col;
         totalTiles = row * col;
-        this.mines = totalTiles / 4;// Calculate the number of mines
+        this.mines = totalTiles / 4; // Calculate the number of mines
         this.safeTilesTotal = totalTiles - mines;
         this.board = new int[row][col];
         this.revealed = new boolean[row][col];
@@ -27,12 +27,12 @@ public class Minesweeper { //Form 5
     }
 
     public void initializeBoard() { // Initializing the board, randomly placing the mines and filling in the rest as safe tiles.
-                                    // Form 8
-        while (mines > 0) {
+        // Form 8
+        while (mines > 0) { // Here we get random coordinates for the mines and place them onto the board.
             Random random = new Random();
             int randomRow = random.nextInt(row);
             int randomCol = random.nextInt(col);
-            // Right above, we get random coordinates for the mines and place them onto the board right below
+
             if (board[randomRow][randomCol] != -1) {
                 board[randomRow][randomCol] = -1;
                 mines--;
@@ -50,10 +50,10 @@ public class Minesweeper { //Form 5
         }
     }
 
-    // Methods to check for surrounding/neighboring mines
+    // Starting checks for surrounding/neighboring mines
     private int northCheck(int mevcutSatır, int mevcutSütun) {
-        int kuzey = mevcutSatır - 1;
-        // Check if there is a row above.
+        int kuzey = mevcutSatır - 1; // Check if there is a row above.
+
         if (kuzey < 0) {
             return 0; // If there isn't a row above, there can't be a mine.
         } else {
@@ -66,9 +66,8 @@ public class Minesweeper { //Form 5
     }
 
     private int southCheck(int mevcutSatır, int mevcutSütun) {
-        int guney = mevcutSatır + 1;
+        int guney = mevcutSatır + 1; // Check if there is a row below.
 
-        // Check if there is a row below.
         if (guney >= row) {
             return 0; // If there isn't a row below, there can't be a mine.
         } else {
@@ -81,9 +80,8 @@ public class Minesweeper { //Form 5
     }
 
     private int eastCheck(int mevcutSatır, int mevcutSütun) {
-        int dogu = mevcutSütun + 1;
+        int dogu = mevcutSütun + 1; // Check if there is a column to the right.
 
-        // Check if there is a column to the right.
         if (dogu >= col) {
             return 0; // If there isn't a column to the right, there can't be a mine.
         } else {
@@ -94,6 +92,7 @@ public class Minesweeper { //Form 5
             }
         }
     }
+
     // Check if there is a column to the left.
     private int westCheck(int mevcutSatır, int mevcutSütun) {
         int batı = mevcutSütun - 1;
@@ -159,7 +158,7 @@ public class Minesweeper { //Form 5
             }
         }
         return 0;
-    }
+    } // Ending checks for surrounding/neighboring mines
 
     public void printBoard() { // Here we print the solution including the flags.
         for (int i = 0; i < row; i++) {
@@ -182,8 +181,6 @@ public class Minesweeper { //Form 5
         int columnNumber; // Used for input validation below
 
         while (safeTiles != safeTilesTotal) { // Form 11
-            Scanner scanner = new Scanner(System.in);
-
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
                     if (revealed[i][j] == false) {
@@ -207,31 +204,33 @@ public class Minesweeper { //Form 5
                 int inputColumnNumber = scanner.nextInt() - 1;
 
                 if (inputRowNumber + 1 <= row && inputRowNumber + 1 >= 1
-                        && inputColumnNumber + 1 <= col && inputColumnNumber + 1 >= 1) { // Input validation to check if the row and column inputs are within range and if the tile has already been revealed or not // Form 10
+                        && inputColumnNumber + 1 <= col && inputColumnNumber + 1 >= 1) { // Form 10 // Input validation to check if the row and column inputs are within range
                     rowNumber = inputRowNumber;
                     columnNumber = inputColumnNumber;
 
-                    if (revealed[rowNumber][columnNumber]) { // Input validation to check if the tile has already been revealed or not // Form 10
+                    if (revealed[rowNumber][columnNumber]) { // Form 10 // Input validation to check if the tile has already been revealed or not
                         System.out.println("That tile is already revealed, please pick another tile.");
                     } else {
                         break; // Break out of the loop when the input is valid and tile is not revealed
                     }
                 } else {
-                    System.out.println("Please make sure to stay within the map.");
+                    System.out.println("Please make sure to stay within the map."); // Form 10
                 }
             }
 
             revealed[rowNumber][columnNumber] = true;
             safeTiles++;
 
-            if (board[rowNumber][columnNumber] == -1) { // The player loses the game if they hit a mine. // Form 13
+            if (board[rowNumber][columnNumber] == -1) { // Form 13 // The player loses the game if they hit a mine.
                 printBoard();
                 System.out.println("Sorry, you've lost!"); // Form 15
+                scanner.close();
                 break;
             } else {
-                if (safeTiles == safeTilesTotal) { // The player wins if the player reveals all the safe tiles. // Form 14
+                if (safeTiles == safeTilesTotal) { // Form 14 // The player wins if the player reveals all the safe tiles.
                     printBoard();
                     System.out.println("You won!"); // Form 15
+                    scanner.close();
                     break;
                 }
             }

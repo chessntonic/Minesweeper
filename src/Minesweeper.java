@@ -65,7 +65,7 @@ public class Minesweeper { // Form 5
         }
     }
 
-    private int southCheck(int mevcutSatir, int mevcutSutun) { // Check if there is a row below.
+    private int southCheck(int mevcutSatir, int mevcutSutun) {
         int guney = mevcutSatir + 1;
 
         if (guney >= row) {
@@ -79,7 +79,7 @@ public class Minesweeper { // Form 5
         }
     }
 
-    private int eastCheck(int mevcutSatir, int mevcutSutun) { // Check if there is a column to the right.
+    private int eastCheck(int mevcutSatir, int mevcutSutun) {
         int dogu = mevcutSutun + 1;
 
         if (dogu >= col) {
@@ -93,7 +93,7 @@ public class Minesweeper { // Form 5
         }
     }
 
-    private int westCheck(int mevcutSatir, int mevcutSutun) { // Check if there is a column to the left.
+    private int westCheck(int mevcutSatir, int mevcutSutun) {
         int bati = mevcutSutun - 1;
 
         if (bati < 0) {

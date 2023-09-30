@@ -110,6 +110,7 @@ public class Minesweeper { // Form 5
     private int northeastCheck(int mevcutSatir, int mevcutSutun) {
         int kuzey = mevcutSatir - 1;
         int dogu = mevcutSutun + 1;
+
         if ((kuzey < 0) || (dogu >= col)) { // Combining the logic from northCheck and eastCheck
             return 0;
         } else {
@@ -123,6 +124,7 @@ public class Minesweeper { // Form 5
     private int northwestCheck(int mevcutSatir, int mevcutSutun) {
         int kuzey = mevcutSatir - 1;
         int bati = mevcutSutun - 1;
+
         if ((kuzey < 0) || (bati < 0)) {
             return 0;
         } else {
@@ -136,6 +138,7 @@ public class Minesweeper { // Form 5
     private int southeastCheck(int mevcutSatir, int mevcutSutun) {
         int guney = mevcutSatir + 1;
         int dogu = mevcutSutun + 1;
+
         if ((guney >= row) || (dogu >= col)) {
             return 0;
         } else {
@@ -149,6 +152,7 @@ public class Minesweeper { // Form 5
     private int southwestCheck(int mevcutSatir, int mevcutSutun) {
         int guney = mevcutSatir + 1;
         int bati = mevcutSutun - 1;
+
         if ((guney >= row) || (bati < 0)) {
             return 0;
         } else {

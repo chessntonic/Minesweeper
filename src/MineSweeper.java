@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Minesweeper { // Form 5
+public class MineSweeper { // Form 5
     private int row;
     private int col;
     private int[][] board;
@@ -11,7 +11,7 @@ public class Minesweeper { // Form 5
     private int safeTilesTotal;
     Scanner scanner = new Scanner(System.in);
 
-    public Minesweeper(int row, int col) {
+    public MineSweeper(int row, int col) {
         int totalTiles;
 
         this.row = row;

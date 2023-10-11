@@ -18,7 +18,7 @@ public class Main {
             }
         } while (row < 3 || col < 3);
 
-        Minesweeper game = new Minesweeper (row, col);
+        MineSweeper game = new MineSweeper (row, col);
 
         scanner.close();
     }

@@ -2,8 +2,7 @@
 
 
 - The game is text-based.
-- 
-- The game is played on two-dimensional arrays and is designed within the MineSweeper class.
+- It's played on two-dimensional arrays and is designed within the MineSweeper class.
 - The user determines the size of the matrix (number of rows and columns).
 - A quarter of the total number of elements in the array (elementCount / 4) is randomly placed with mines. For example, if the matrix is 4x3 in size, the number of tiles is calculated using the formula (rowCount * columnCount), and the size is 12. In this case, the number of mines is set to 12 / 4 = 3.
 - The user selects a point on the matrix and enters it as row and column values.

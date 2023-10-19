@@ -1,12 +1,14 @@
 # Minesweeper
 
-- Oyun metin tabanlıdır. 
-- Oyun çift boyutlu diziler üzerinden oynanmakta olup ve MineSweeper sınıfı içerisinde tasarlanmıştır. 
-- Matris boyutunu (satır ve sütun sayısını) kullanıcı belirlemektedir. 
-- Diziye ait eleman sayısının çeyreği (elemanSayisi / 4) kadar rastgele mayın yerleştirilmektedir. Örneğin matris 4x3 boyutunda ise eleman sayısı (satırSayısı * sütunSayısı) formülü ile hesaplanmakta ve boyutu 12 olmaktadır. Bu durumda mayın sayısı 12 / 4 = 3 adet olarak belirlenmektedir.
-- Kullanıcı matris üzerinden bir nokta seçmekte olup, seçtiği noktayı için satır ve sütun değerleri olarak girmektedir. 
-- Seçilen noktanın dizinin sınırları içerisinde olup olmadığı kontrol edilip, koşul sağlanmaması durumunda tekrar nokta istenmektedir. 
-- Kullanıcı, seçtiği koordinatta mayın olması durumunda oyunu kaybetmektedir. 
-- Seçtiği koordinatta mayın yok ise, ilgili noktaya değen tüm konumlara bakılmaktadır (sağı, solu, yukarısı, aşağısı, sol üst çapraz, sağ üst çapraz, sağ alt çapraz, sol alt çapraz) ve etrafındaki mayınların sayısının toplamı ilgili noktaya yazılmaktadır. Noktaya değen herhangi bir mayın yok ise "0" değeri atanmaktadır. 
-- Kullanıcı hiç bir mayına basmadan tüm noktaları seçebilirse oyunu kazanmaktadır.
-- Oyunun sonlanması durumunda çözüm haritası kullanıcıya gösterilerek kendisine kazanma/kaybetme durumu uygun mesaj ile terminale yazdırılmaktadır. 
+
+- The game is text-based.
+- 
+- The game is played on two-dimensional arrays and is designed within the MineSweeper class.
+- The user determines the size of the matrix (number of rows and columns).
+- A quarter of the total number of elements in the array (elementCount / 4) is randomly placed with mines. For example, if the matrix is 4x3 in size, the number of tiles is calculated using the formula (rowCount * columnCount), and the size is 12. In this case, the number of mines is set to 12 / 4 = 3.
+- The user selects a point on the matrix and enters it as row and column values.
+- It is checked whether the selected point is within the boundaries of the array, and if the condition is not met, the user is asked for a coordinate again.
+- If there is a mine at the selected coordinates, the user loses the game.
+- If there is no mine at the selected coordinates, all adjacent positions are checked (right, left, up, down, top-left diagonal, top-right diagonal, bottom-right diagonal, bottom-left diagonal), and the total number of mines around that point is written to that point. If no mines are around    the coordinate, the value "0" is assigned.
+- If the user selects all points without hitting any mines, they win the game.
+- When the game ends, the solution map is shown to the user, and the result (win/lose) is printed to the terminal with an appropriate message.
